@@ -1,0 +1,7 @@
+{
+  "required": true,
+  "package": "com.teampotato.forcejava21.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "plugin": "com.teampotato.forcejava21.mixin.Plugin",
+  "minVersion": "0.8"
+}

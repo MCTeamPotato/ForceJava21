@@ -1,0 +1,19 @@
+modLoader = "javafml"
+loaderVersion = "[36,)"
+license = "LGPL-v3"
+
+[[mods]]
+modId = "forcejava21"
+version = "${version}"
+displayName = "ForceJava21"
+authors = "TeamPotato"
+description = '''
+A Minecraft Mod.
+'''
+
+[[dependencies.forcejava21]]
+modId = "forge"
+mandatory = true
+versionRange = "[36.2.41,)"
+ordering = "NONE"
+side = "BOTH"
