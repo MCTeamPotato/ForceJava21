@@ -12,7 +12,7 @@ import java.util.Set;
 public class Plugin implements IMixinConfigPlugin {
     public Plugin() {
         int javaVersion = (int) JavaVersion.current();
-        if (javaVersion != 21.0) {
+        if (javaVersion < 21) {
             System.out.println("Please use Java 21 and Forge 36.2.41+ to launch Minecraft");
             System.out.println("Current Java version: " + javaVersion + ". Current Forge version: " + ForgeVersion.getVersion());
             System.out.println("Recommendations: ");
