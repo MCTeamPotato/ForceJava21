@@ -1,5 +1,6 @@
 package com.teampotato.forcejava21.mixin;
 
+import net.minecraft.SharedConstants;
 import net.minecraftforge.versions.forge.ForgeVersion;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -7,14 +8,20 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import org.spongepowered.asm.util.JavaVersion;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 public class Plugin implements IMixinConfigPlugin {
     public Plugin() {
         int javaVersion = (int) JavaVersion.current();
         if (javaVersion < 21) {
-            System.out.println("Please use Java 21 and Forge 36.2.41+ to launch Minecraft");
-            System.out.println("Current Java version: " + javaVersion + ". Current Forge version: " + ForgeVersion.getVersion());
+            if (Objects.equals(SharedConstants.getCurrentVersion().getReleaseTarget(), "1.16.5")) {
+                System.out.println("Please use Java 21+ and Forge 36.2.41+ to launch Minecraft");
+                System.out.println("Current Java version: " + javaVersion + ". Current Forge version: " + ForgeVersion.getVersion());
+            } else {
+                System.out.println("Please use Java 21+ to launch Minecraft");
+                System.out.println("Current Java version: " + javaVersion + ".");
+            }
             System.out.println("Recommendations: ");
             System.out.println("Zulu: https://www.azul.com/downloads/?version=java-21-lts&package=jdk#zulu");
             System.out.println("Oracle: https://www.oracle.com/java/technologies/downloads/#java21");
