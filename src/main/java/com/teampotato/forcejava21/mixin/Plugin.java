@@ -1,6 +1,5 @@
 package com.teampotato.forcejava21.mixin;
 
-import net.minecraft.SharedConstants;
 import net.minecraftforge.versions.forge.ForgeVersion;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
@@ -8,16 +7,16 @@ import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 import org.spongepowered.asm.util.JavaVersion;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Set;
 
 public class Plugin implements IMixinConfigPlugin {
     public Plugin() {
         int javaVersion = (int) JavaVersion.current();
+        String forgeVersion = ForgeVersion.getVersion();
         if (javaVersion < 21) {
-            if (Objects.equals(SharedConstants.getCurrentVersion().getReleaseTarget(), "1.16.5")) {
+            if (Integer.parseInt(forgeVersion.split("\\.")[0]) == 36) {
                 System.out.println("Please use Java 21+ and Forge 36.2.41+ to launch Minecraft");
-                System.out.println("Current Java version: " + javaVersion + ". Current Forge version: " + ForgeVersion.getVersion());
+                System.out.println("Current Java version: " + javaVersion + ". Current Forge version: " + forgeVersion);
             } else {
                 System.out.println("Please use Java 21+ to launch Minecraft");
                 System.out.println("Current Java version: " + javaVersion + ".");
